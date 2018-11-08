@@ -37,6 +37,13 @@ class ExtendedData implements ExtendedDataInterface
 
     public function isEncryptionRequired($name)
     {
+        $encryption = $this->isEncryptionRequiredWith($name);
+
+        return $encryption === true || is_string($encryption);
+    }
+
+    public function isEncryptionRequiredWith($name)
+    {
         if (!isset($this->data[$name])) {
             throw new \InvalidArgumentException(sprintf('There is no data with key "%s".', $name));
         }

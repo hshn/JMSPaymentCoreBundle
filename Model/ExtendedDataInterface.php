@@ -20,9 +20,28 @@ namespace JMS\Payment\CoreBundle\Model;
 
 interface ExtendedDataInterface
 {
+    /**
+     * @param string $name
+     * @return string|null
+     */
+    public function isEncryptionRequiredWith($name);
+
+    /**
+     * @deprecated {@link isEncryptionRequiredWith} instead
+     * @param string $name
+     * @return boolean
+     */
     public function isEncryptionRequired($name);
     public function mayBePersisted($name);
     public function remove($name);
+
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @param true|string $encrypt
+     * @param bool $persist
+     * @return void
+     */
     public function set($name, $value, $encrypt = true, $persist = true);
     public function get($name);
     public function has($name);
