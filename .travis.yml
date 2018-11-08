@@ -2,7 +2,7 @@ language: php
 
 branches:
   only:
-    - master
+    - encription-migration-capability
 
 cache:
   directories:
